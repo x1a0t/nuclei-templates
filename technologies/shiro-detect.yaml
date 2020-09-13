@@ -1,0 +1,17 @@
+id: Shiro Detect
+
+info:
+  name: Detect Shiro Service
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    headers:
+      Cookie: rememberMe=AAA
+    
+    matchers:
+      - type: word
+        words:
+          - "rememberMe=deleteMe"
+        part: header
