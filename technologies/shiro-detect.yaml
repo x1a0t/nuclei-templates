@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-id: Shiro Detect
-
-info:
-  name: Detect Shiro Service
-
-requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-    headers:
-      Cookie: rememberMe=AAA
-    
-    matchers:
-      - type: word
-        words:
-          - "rememberMe=deleteMe"
-=======
 id: shiro-detect
 info:
   name: Detect Shiro Framework
@@ -31,5 +13,4 @@ requests:
       - type: word
         words:
           - rememberMe=deleteMe
->>>>>>> upstream/master
         part: header
