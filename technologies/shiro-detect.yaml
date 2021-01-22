@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 id: Shiro Detect
 
 info:
@@ -14,4 +15,21 @@ requests:
       - type: word
         words:
           - "rememberMe=deleteMe"
+=======
+id: shiro-detect
+info:
+  name: Detect Shiro Framework
+  author: AresX
+  severity: info
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+    headers:
+      Cookie: rememberMe=123;
+    matchers:
+      - type: word
+        words:
+          - rememberMe=deleteMe
+>>>>>>> upstream/master
         part: header
