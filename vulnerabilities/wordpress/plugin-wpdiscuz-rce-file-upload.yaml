@@ -1,0 +1,21 @@
+id: plugin-wpdiscuz-file-upload
+
+info:
+  name: WpDiscuz Plugin < 7.0.5 Arbitrary File Upload
+  author: x1a0t
+  severity: critical
+  reference: "https://github.com/suncsr/wpDiscuz_unauthenticated_arbitrary_file_upload/blob/main/README.md"
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-admin/admin-ajax.php?action=wmuUploadFiles"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "-1"
+        part: body
+      - type: dsl
+        dsl:
+          - "len(body)==2"

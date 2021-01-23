@@ -1,0 +1,25 @@
+id: plugin-total-upkeep-information-disclosure-2
+
+info:
+  name: Total Upkeep Plugin 1.14.9 IP Disclosure
+  author: x1a0t
+  severity: high
+  reference: "https://www.exploit-db.com/exploits/49252"
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/boldgrid-backup/cli/env-info.php"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "php_uname"
+          - "php_version"
+          - "server_addr"
+        condition: and
+        part: body
+      
+      - type: status
+        status:
+          - 200

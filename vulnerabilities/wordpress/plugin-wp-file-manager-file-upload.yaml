@@ -1,0 +1,18 @@
+id: plugin-wp-file-manager-file-upload
+
+info:
+  name: WP File Manager Plugin < 6.9 Arbitrary File Upload
+  author: x1a0t
+  severity: critical
+  reference: "https://www.anquanke.com/post/id/216990"
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "errUnknownCmd"
+        part: body
